@@ -18,7 +18,7 @@ public class Conexion {
 	private static final String password = "";
 	
 	
-	public Conexion() {
+	public Conexion(String url, String dbName, String driver, String username, String password) {
 		
 		try {
 			Class.forName(driver).newInstance();
@@ -39,10 +39,8 @@ public class Conexion {
 		}
 	}
 	
-	public static Conexion getConexion() {
-		if(db == null) {
-			db = new Conexion();
-		}return db;
+	public static Conexion getConection() {
+		
 	}
 	
 	public ResultSet query () throws SQLException {
