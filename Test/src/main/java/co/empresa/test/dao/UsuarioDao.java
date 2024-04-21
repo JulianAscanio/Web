@@ -17,11 +17,11 @@ public class UsuarioDao {
 	private static final String SELECT_ALL_USUARIOS = "SELECT * FROM usuario";
 	
 	
-	public UsuarioDao() {
+	public UsuarioDao() throws SQLException {
 		this.conexion = conexion.getConexion();
 	}
 	
-	public void insert(Usuario usuario) {
+	public void insert(Usuario usuario) throws SQLException {
 		try {
 			
 			PreparedStatement preparedStatement = conexion.setPreparedStatent(INSERT_USUARIO_SQL);
@@ -34,7 +34,7 @@ public class UsuarioDao {
 		}
 	}
 	
-	public void delete(int id) {
+	public void delete(int id) throws SQLException {
 		try {
 			
 			PreparedStatement preparedStatement = conexion.setPreparedStatent(DELETE_USUARIO_SQL);
@@ -47,7 +47,7 @@ public class UsuarioDao {
 		}
 	}
 	
-	public void update(Usuario usuario) {
+	public void update(Usuario usuario) throws SQLException {
 		try {
 			
 			PreparedStatement preparedStatement = conexion.setPreparedStatent(UPDATE_USUARIO_SQL);
