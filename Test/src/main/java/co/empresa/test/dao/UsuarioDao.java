@@ -54,6 +54,7 @@ public class UsuarioDao {
 			preparedStatement.setString(2, usuario.getEmail());
 			preparedStatement.setString(3, usuario.getPais());
 			preparedStatement.setInt(4, usuario.getId());
+			preparedStatement.executeUpdate();
 			conexion.execute();
 		} catch (SQLException e) {
 			e.printStackTrace();

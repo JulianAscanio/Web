@@ -12,7 +12,7 @@ public class Conexion {
 	private static final String url = "jdbc:mysql://localhost:3306/sistema";
 	private static final String driver = "com.mysql.jdbc.Driver";
 	private static final String userName = "root";
-	private static final String password = "Juliasca123";
+	private static final String password = "";
 
 	private Connection con = null;
 	private static Conexion db;
