@@ -12,6 +12,9 @@ import java.sql.SQLException;
 import java.util.List;
 
 import co.empresa.test.dao.UsuarioDao;
+import co.empresa.test.dao.UsuarioDaoFactory;
+import co.empresa.test.dao.UsuarioDaoMySQL;
+import co.empresa.test.dao.UsuarioDaoPostgres;
 import co.empresa.test.modelo.Usuario;
 
 /**
@@ -32,10 +35,12 @@ public class UsuarioServlet extends HttpServlet {
 	/**
 	 * @see Servlet#init(ServletConfig)
 	 */
-	public void init(ServletConfig config) throws ServletException {
+	public void init() throws ServletException {
 		// TODO Auto-generated method stub
 		try {
-			this.usuarioDao = new UsuarioDao();
+			String type = getServletContext().getInitParameter("type");
+			this.usuarioDao = UsuarioDaoFactory.getUusarioDao(type);
+			//this.usuarioDao = new UsuarioDaoPostgres();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
